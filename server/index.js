@@ -6,10 +6,6 @@ import mongoose from 'mongoose';
 import {app} from './app.js';
 
 const PORT = process.env.PORT || 3000;
-console.log("PORT :" , PORT);
-console.log("URI:", process.env.MONGODB_URI);
-
-
 // Database configuration and Connection
 const connectDB = () =>{
     main()
