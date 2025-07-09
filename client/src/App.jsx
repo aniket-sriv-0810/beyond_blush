@@ -5,6 +5,8 @@ import LoadingScreen from './components/Loaders/LoadingScreen'
 import { Route, Routes } from 'react-router-dom'
 import FAQs from './components/FAQs/FAQs'
 import About from './pages/About'
+import Contact from './pages/Contact'
+import Services from './pages/Services'
 
 const App = () => {
    const [loading, setLoading] = useState(true);
@@ -21,8 +23,8 @@ const App = () => {
      <Route path='/' element={<Home/>} />
      <Route path='/about' element={<About/>} />
      <Route path='/faqs' element={<FAQs/>} />
-     <Route path='/' element={<Home/>} />
-     <Route path='/' element={<Home/>} />
+     <Route path='/contact' element={<Contact/>} />
+     <Route path='/services' element={<Services/>} />
     </Routes>
       
     </div>

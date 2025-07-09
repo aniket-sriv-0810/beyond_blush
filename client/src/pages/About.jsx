@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar/Navbar'
 import AboutSection from '../components/About/AboutSection'
 import AwardsSection from '../components/About/AwardsSection'
 import CertificateGallery from '../components/About/CertificateGallery'
+import Footer from '../components/Footer/Footer'
 
 const About = () => {
   return (
@@ -11,6 +12,7 @@ const About = () => {
       <AboutSection/>
       <AwardsSection/>
       <CertificateGallery/>
+      <Footer/>
     </>
   )
 }
