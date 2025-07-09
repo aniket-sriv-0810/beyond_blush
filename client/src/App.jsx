@@ -7,6 +7,7 @@ import FAQs from './components/FAQs/FAQs'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Services from './pages/Services'
+import AdminLogin from './pages/Admin/Auth/AdminLogin'
 
 const App = () => {
    const [loading, setLoading] = useState(true);
@@ -21,6 +22,7 @@ const App = () => {
     <FloatingActionBtn/>
     <Routes>
      <Route path='/' element={<Home/>} />
+     <Route path='/admin' element={<AdminLogin/>} />
      <Route path='/about' element={<About/>} />
      <Route path='/faqs' element={<FAQs/>} />
      <Route path='/contact' element={<Contact/>} />
