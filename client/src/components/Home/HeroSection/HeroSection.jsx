@@ -28,11 +28,11 @@ const HeroSection = () => {
           </div>
 
           {/* Right Image */}
-          <div className="flex-1">
+          <div className=" flex justify-start items-end">
             <img
               src={showcase}
               alt="Makeup showcase"
-              className="w-full max-w-sm sm:max-w-md lg:max-w-lg rounded-3xl shadow-lg object-contain"
+              className="max-w-sm rounded-3xl shadow-lg object-contain"
             />
           </div>
         </div>
