@@ -12,7 +12,9 @@ const Home = () => {
   return (
     <div>
     <Navbar/>
-    <HeroSection/>
+    <div className="pt-0 md:pt-0"> {/* ~64-80px */}
+  <HeroSection />
+</div>
     <AboutSection/>
     <ImageGallery/>
     <ServiceSection/>

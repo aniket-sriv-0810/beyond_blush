@@ -1,19 +1,20 @@
 // HeroSection.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import showcase from '../../../assets/admin-beyond-blush-1.jpg'; // use a high-quality image here
+import showcase from '../../../assets/admin0.jpg'; // use a high-quality image here
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full h-screen bg-gradient-to-br from-[#f3d2b3] to-[#d9a87c] overflow-hidden">
-      <div className="absolute inset-0 z-10">
+    <section className="relative h-screen md:relative w-full md:h-screen bg-gradient-to-br from-[#f3d2b3] to-[#d9a87c]">
+      <div className="absolute  md:inset-0 z-10">
         <div className="max-w-7xl mx-auto px-4 lg:px-8 h-full flex flex-col lg:flex-row items-center justify-center gap-12">
           {/* Left Text */}
-          <div className="flex-1 text-center lg:text-left text-[#582f21]">
-            <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold leading-tight font-serif">
-              Beyond Blush<br />
-              Makeup & Hair Artist
+          <div className="flex-1 mt-20 text-center lg:text-left text-[#582f21]">
+            <h1 className="text-3xl sm:text-5xl xl:text-6xl font-extrabold leading-tight font-serif">
+              Tamanna Srivastav
+              <br />
             </h1>
+             <h2 className='mt-1 md:font-medium md:ml-2  md:text-2xl text-[#582f21]'> Makeup Artist | Hair Stylist | Nail Artist </h2>
             <p className="mt-6 text-lg italic max-w-lg mx-auto lg:mx-0">
               Hello, I’m your trusted stylist! I love helping people feel beautiful — which is why I've spent years refining my passion for makeup & hair artistry.
             </p>
@@ -32,7 +33,7 @@ const HeroSection = () => {
             <img
               src={showcase}
               alt="Makeup showcase"
-              className="max-w-sm rounded-3xl shadow-lg object-contain"
+              className="w-60 md:w-80 rounded-3xl shadow-lg object-contain"
             />
           </div>
         </div>
