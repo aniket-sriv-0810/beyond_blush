@@ -5,7 +5,7 @@ import logo from '../../assets/beyond_blush-logo-BLACK.png';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#f3d2b3] text-[#582f21] py-10 px-4">
+    <footer className="bg-[#f3d2b3] text-[#582f21] -mb-6 py-10 px-4">
       <div className="max-w-7xl mx-auto grid gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         {/* Logo & Tagline */}
         <div className="flex flex-col items-start gap-3">

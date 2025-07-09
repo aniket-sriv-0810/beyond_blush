@@ -8,6 +8,7 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import Services from './pages/Services'
 import AdminLogin from './pages/Admin/Auth/AdminLogin'
+import AdminHome from './components/Admin/AdminHome'
 
 const App = () => {
    const [loading, setLoading] = useState(true);
@@ -23,6 +24,7 @@ const App = () => {
     <Routes>
      <Route path='/' element={<Home/>} />
      <Route path='/admin' element={<AdminLogin/>} />
+     <Route path='/admin/home' element={<AdminHome/>} />
      <Route path='/about' element={<About/>} />
      <Route path='/faqs' element={<FAQs/>} />
      <Route path='/contact' element={<Contact/>} />

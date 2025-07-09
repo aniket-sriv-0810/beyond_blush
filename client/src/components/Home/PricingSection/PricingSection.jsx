@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../../assets/beyond_blush-logo-bgWHITE.png'; // light faded bg
+import logo from '../../../assets/bg-beyond.jpg'; // light faded bg
 import { FaRupeeSign } from 'react-icons/fa';
 
 const pricingData = [
@@ -39,7 +39,7 @@ const PricingSection = () => {
         opacity: '1',
       }}
     >
-      <div className="absolute inset-0 bg-white/70 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 backdrop-blur-sm"></div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-4">
         <h2 className="text-4xl text-center font-serif font-bold mb-12">Pricing</h2>
@@ -59,7 +59,7 @@ const PricingSection = () => {
                     <p className="text-sm font-medium w-3/4">{item.desc}</p>
                     <span className="text-md font-semibold flex items-center gap-1">
                       <FaRupeeSign className="text-pink-400" />
-                      {item.price.toLocaleString()}
+                      {item.price.toLocaleString("INR")}
                     </span>
                   </div>
                 ))}
