@@ -1,7 +1,7 @@
 // HeroSection.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import showcase from '../../../assets/admin0.jpg'; // use a high-quality image here
+import showcase from '../../../assets/admin0-no-bg.png'; // use a high-quality image here
 
 const HeroSection = () => {
   return (
@@ -29,11 +29,11 @@ const HeroSection = () => {
           </div>
 
           {/* Right Image */}
-          <div className=" flex justify-start items-end">
+          <div className="py-3 flex justify-start items-end">
             <img
               src={showcase}
               alt="Makeup showcase"
-              className="w-60 md:w-80 rounded-3xl shadow-lg object-contain"
+              className="w-60 md:w-lg md:mt-12 rounded-3xl  object-contain"
             />
           </div>
         </div>
