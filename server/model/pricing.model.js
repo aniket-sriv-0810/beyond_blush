@@ -3,15 +3,20 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const pricingSchema = new Schema ({
+    category:{
+        type:String,
+        required:[true , "Please enter the Category !"],
+        enum:["Basic Makeup" , "HD Makeup" , "Makeup Fusion"]
+    },
     title:{
-        title:String,
+        type:String,
         required:[true , "Please enter the title !"]
     },
     includes:{
-        title:String,
+        type:String,
     },
     price:{
-        title : Number,
+        type : Number,
         required:[true, "Please enter the price !"]
     }
 } , {timestamps:true})

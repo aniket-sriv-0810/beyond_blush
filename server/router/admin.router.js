@@ -4,6 +4,8 @@ import { validate } from '../middleware/validator.js';
 import { createFaqSchema, updateFaqSchema } from '../test/Faq/faq.validator.js';
 import { createFaq, createTerms, deleteFaq, deleteTerms, updateFaq, updateTerms } from '../controller/nav.controller.js';
 import { createTermsSchema, updateTermsSchema } from '../test/TermsCond/termsandcond.validator.js';
+import { createPricingSchema, updatePricingSchema } from '../test/Pricing/pricing.validator.js';
+import { addPricing, deletePricing, updatePricing } from '../controller/adminTwo.controller.js';
 
 const router = express.Router();
 
@@ -99,20 +101,20 @@ router
 //      .route('/img-slider/:id/delete')
 //      .delete()
 
-// //Add  Pricing  Details
-// router
-//      .route('/add-price')
-//      .post()
+//Add  Pricing  Details
+router
+     .route('/add-price')
+     .post(validate(createPricingSchema),addPricing)
 
-// //Edit Pricing Details
-// router
-//      .route('/price/:id/edit')
-//      .put()
+//Edit Pricing Details
+router
+     .route('/price/:id/edit')
+     .put(validate(updatePricingSchema),updatePricing)
 
-// //Delete Pricing Details
-// router
-//      .route('/price/:id/delete')
-//      .delete()
+//Delete Pricing Details
+router
+     .route('/price/:id/delete')
+     .delete(deletePricing )
 
 
 export default router;
