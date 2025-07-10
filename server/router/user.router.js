@@ -1,4 +1,5 @@
 import express from 'express';
+import { loginUser, registerUser } from '../controller/adminOne.controller.js';
 
 const router = express.Router();
 
@@ -7,21 +8,25 @@ const router = express.Router();
 //Register a new User
 router
      .route('/register')
-     .post()
+     .post(registerUser)
 
-// Display Data of a User
 router
-     .route('/:id')
-     .get()
+     .route('/login')
+     .post(loginUser)
 
-//Edit Details of User
-router
-     .route('/:id/edit')
-     .put()
+// // Display Data of a User
+// router
+//      .route('/:id')
+//      .get()
 
-//Change Password of User
-router
-     .route('/change-password')
-     .put()
+// //Edit Details of User
+// router
+//      .route('/:id/edit')
+//      .put()
+
+// //Change Password of User
+// router
+//      .route('/change-password')
+//      .put()
 
 export default router;
