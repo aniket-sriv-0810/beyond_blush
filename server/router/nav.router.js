@@ -1,7 +1,7 @@
 import express from 'express' ;
 import {validate} from '../middleware/validator.js'
 import { contactSchemaValidation } from '../test/Contact/contact.validator.js';
-import { createContact, createReview, getAllReviews } from '../controller/nav.controller.js';
+import { createContact, createReview, getAllFaqs, getAllReviews, getAllTerms } from '../controller/nav.controller.js';
 import { reviewSchemaValidation } from '../test/Review/review.validator.js';
 const router = express.Router();
 
@@ -30,12 +30,12 @@ router
 //Display all FAQs
 router
      .route('/faqs')
-     .get(validate(contactSchemaValidation) , createContact)
+     .get(getAllFaqs)
 
 //Display all Terms & Conditions
 router
      .route('/terms-and-cond')
-     .get(validate(contactSchemaValidation) , createContact)
+     .get(getAllTerms)
 
 //Display all prices
 router

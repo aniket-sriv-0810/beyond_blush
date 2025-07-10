@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 
 const termsCondSchema = new Schema ({
     terms:{
-        title:String,
+        type:String,
+        trim:true,
         required:[true , "Please enter the Terms !"]
     },
 } , {timestamps:true})

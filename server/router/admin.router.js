@@ -1,5 +1,9 @@
 import express from 'express' ;
 import { deleteContactById, deleteReviewById, getAllContacts } from '../controller/adminOne.controller.js';
+import { validate } from '../middleware/validator.js';
+import { createFaqSchema, updateFaqSchema } from '../test/Faq/faq.validator.js';
+import { createFaq, createTerms, deleteFaq, deleteTerms, updateFaq, updateTerms } from '../controller/nav.controller.js';
+import { createTermsSchema, updateTermsSchema } from '../test/TermsCond/termsandcond.validator.js';
 
 const router = express.Router();
 
@@ -50,35 +54,35 @@ router
 //      .route('/card/:id/delete')
 //      .delete()
 
-// //Add FAQs Details
-// router
-//      .route('/add-faq')
-//      .post()
+//Add FAQs Details
+router
+     .route('/add-faq')
+     .post(validate(createFaqSchema) , createFaq)
 
-// //Edit FAQs Details
-// router
-//      .route('/faq/:id/edit')
-//      .put()
+//Edit FAQs Details
+router
+     .route('/faq/:id/edit')
+     .put(validate(updateFaqSchema) , updateFaq)
 
-// //Delete FAQs Details
-// router
-//      .route('/faq/:id/delete')
-//      .delete()
+//Delete FAQs Details
+router
+     .route('/faq/:id/delete')
+     .delete(deleteFaq)
 
-// //Add Terms & Cond Details
-// router
-//      .route('/add-terms-and-cond')
-//      .post()
+//Add Terms & Cond Details
+router
+     .route('/add-terms-and-cond')
+     .post(validate(createTermsSchema), createTerms)
 
-// //Edit Terms & Cond Details
-// router
-//      .route('/terms-and-cond/:id/edit')
-//      .put()
+//Edit Terms & Cond Details
+router
+     .route('/terms-and-cond/:id/edit')
+     .put(validate(updateTermsSchema) , updateTerms)
 
-// //Delete Terms & Cond Details
-// router
-//      .route('/terms-and-cond/:id/delete')
-//      .delete()
+//Delete Terms & Cond Details
+router
+     .route('/terms-and-cond/:id/delete')
+     .delete(deleteTerms)
 
 // //Add Img Slider Details
 // router
