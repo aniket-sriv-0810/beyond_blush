@@ -105,6 +105,66 @@ const loginUser = asyncHandler(async (req, res) => {
   });
 });
 
+//Fetch individual User details Controller
+const getUserById = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+
+  const user = await User.findById(id).select("-password"); // exclude password
+
+  if (!user) {
+    return res.status(404).json(
+      new ApiError(404, "User not found")
+    );
+  }
+
+  return res.status(200).json(
+    new ApiResponse(200, { user }, "User fetched successfully")
+  );
+});
+
+// Update User Details Controller
+const updateUser = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  const { name, email, phone } = req.body;
+
+  const user = await User.findById(id);
+  if (!user) {
+    return res.status(404).json(new ApiError(404, "User not found"));
+  }
+
+  if (email) user.email = email.toLowerCase();
+  if (name) user.name = name;
+  if (phone) user.phone = phone;
+
+  await user.save();
+
+  return res.status(200).json(
+    new ApiResponse(200, { user }, "User updated successfully")
+  );
+});
+
+//Change Password Controller
+const changePassword = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  const { currentPassword, newPassword } = req.body;
+
+  const user = await User.findById(id).select("+password");
+  if (!user) {
+    return res.status(404).json(new ApiError(404, "User not found"));
+  }
+
+  const isMatch = await user.comparePassword(currentPassword);
+  if (!isMatch) {
+    return res.status(401).json(new ApiError(401, "Current password is incorrect"));
+  }
+
+  user.password = newPassword;
+  await user.save();
+
+  return res.status(200).json(
+    new ApiResponse(200, {}, "Password updated successfully")
+  );
+});
 
 //Fetch all Contact Details
 const getAllContacts = asyncHandler(async (req, res) => {
@@ -178,4 +238,4 @@ const deleteReviewById = asyncHandler(async (req, res) => {
       .json(new ApiError(400, error, "Failed to delete review."));
   }
 });
-export {registerUser,loginUser, getAllContacts , deleteContactById , deleteReviewById };
+export {registerUser,loginUser,getUserById ,updateUser ,changePassword , getAllContacts , deleteContactById , deleteReviewById };
