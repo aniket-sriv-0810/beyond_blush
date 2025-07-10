@@ -58,8 +58,12 @@ app.use(session(expressSessionOption));
 
 
 import userRouter from './router/user.router.js' ;
+import navRouter from './router/nav.router.js';
+import adminRouter from './router/admin.router.js';
 
 app.use('/api/user' , userRouter);
+app.use('/api/navigate' , navRouter);
+app.use('/api/admin' , adminRouter);
 app.get('/' , (req,res) => {
     res.send("Server connected successfully !");
 })
