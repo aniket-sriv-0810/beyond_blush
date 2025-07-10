@@ -56,6 +56,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(session(expressSessionOption));
 
+
+import userRouter from './router/user.router.js' ;
+
+app.use('/api/user' , userRouter);
 app.get('/' , (req,res) => {
     res.send("Server connected successfully !");
 })
