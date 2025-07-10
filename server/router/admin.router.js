@@ -5,7 +5,8 @@ import { createFaqSchema, updateFaqSchema } from '../test/Faq/faq.validator.js';
 import { createFaq, createTerms, deleteFaq, deleteTerms, updateFaq, updateTerms } from '../controller/nav.controller.js';
 import { createTermsSchema, updateTermsSchema } from '../test/TermsCond/termsandcond.validator.js';
 import { createPricingSchema, updatePricingSchema } from '../test/Pricing/pricing.validator.js';
-import { addPricing, deletePricing, updatePricing } from '../controller/adminTwo.controller.js';
+import { addPricing, createSlider, deletePricing, deleteSlider, editSlider, updatePricing } from '../controller/adminTwo.controller.js';
+import { upload } from '../multer.js';
 
 const router = express.Router();
 
@@ -86,20 +87,20 @@ router
      .route('/terms-and-cond/:id/delete')
      .delete(deleteTerms)
 
-// //Add Img Slider Details
-// router
-//      .route('/add-img-slider')
-//      .post()
+//Add Img Slider Details
+router
+     .route('/add-img-slider')
+     .post( upload.array("images" , 5)  ,createSlider)
 
-// //Edit Img Slider Details
-// router
-//      .route('/img-slider/:id/edit')
-//      .put()
+//Edit Img Slider Details
+router
+     .route('/img-slider/:id/edit')
+     .put(upload.array("images" , 5)  ,editSlider)
 
-// //Delete Img Slider Details
-// router
-//      .route('/img-slider/:id/delete')
-//      .delete()
+//Delete Img Slider Details
+router
+     .route('/img-slider/:id/delete')
+     .delete(deleteSlider)
 
 //Add  Pricing  Details
 router

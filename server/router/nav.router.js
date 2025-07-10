@@ -3,7 +3,7 @@ import {validate} from '../middleware/validator.js'
 import { contactSchemaValidation } from '../test/Contact/contact.validator.js';
 import { createContact, createReview, getAllFaqs, getAllReviews, getAllTerms } from '../controller/nav.controller.js';
 import { reviewSchemaValidation } from '../test/Review/review.validator.js';
-import { getAllPricing } from '../controller/adminTwo.controller.js';
+import { getAllPricing, getAllSliders } from '../controller/adminTwo.controller.js';
 const router = express.Router();
 
 // Core Route : /api/navigate
@@ -22,6 +22,11 @@ router
 router
      .route('/all-reviews')
      .get(getAllReviews)
+
+//Display all Img Sliders
+router
+     .route('/all-slides')
+     .get(getAllSliders)
 
 //Display all Services
 router
