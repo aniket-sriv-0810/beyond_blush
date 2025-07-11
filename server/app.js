@@ -7,9 +7,13 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import MongoStore from 'connect-mongo';
-
+import path from 'path';
+import { fileURLToPath } from 'url';
 const app = express();
 const isProduction = process.env.NODE_ENV === 'production';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Set trust proxy before session middleware
 app.set('trust proxy', 1);
@@ -57,6 +61,14 @@ app.use(cookieParser());
 app.use(session(expressSessionOption));
 
 
+// Serve static files from the public folder
+const clientBuildPath = path.join(__dirname, 'public');
+app.use(express.static(clientBuildPath, {
+    setHeaders: (res, path) => {
+      console.log('Serving static file:', path); // Log all served files
+    }
+  }));
+
 import userRouter from './router/user.router.js' ;
 import navRouter from './router/nav.router.js';
 import adminRouter from './router/admin.router.js';
@@ -69,5 +81,11 @@ app.get('/' , (req,res) => {
 })
 
 
-
+// React Router Fix - Serves index.html for unhandled routes
+app.use((req, res, next) => {
+  if (req.path.startsWith('/api/')) {
+    return next();
+  }
+  res.sendFile(path.join(clientBuildPath, 'index.html'));
+});
 export { app };
