@@ -1,21 +1,51 @@
-// components/AuthForm.jsx
 import React, { useState } from 'react';
 import AuthInput from './AuthInput';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const AuthForm = () => {
   const [formData, setFormData] = useState({
-    email: '',
-    phone: '',
+    emailOrPhone: '',
     password: '',
   });
 
-  const handleChange = (e) =>
+  const [errors, setErrors] = useState({});
+  const [serverError, setServerError] = useState('');
+  const [loading, setLoading] = useState(false); // <- loading state
+  const navigate = useNavigate();
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    setErrors({ ...errors, [e.target.name]: '' });
+  };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Submit logic here
-    console.log(formData);
+    setServerError('');
+    const newErrors = {};
+
+    if (!formData.emailOrPhone) newErrors.emailOrPhone = 'Email or phone is required';
+    if (!formData.password) newErrors.password = 'Password is required';
+
+    if (Object.keys(newErrors).length > 0) return setErrors(newErrors);
+
+    try {
+      setLoading(true); // <- start spinner
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/user/login`, formData);
+
+      if (res.data?.user?.role !== 'admin') {
+        setServerError('Access denied. Only admins are allowed.');
+        setLoading(false);
+        return;
+      }
+
+      localStorage.setItem('token', res.data.token);
+      navigate('/admin/home');
+    } catch (err) {
+      const msg =
+        err.response?.data?.message || 'Something went wrong. Please try again.';
+      setServerError(msg);
+      setLoading(false);
+    }
   };
 
   return (
@@ -26,33 +56,46 @@ const AuthForm = () => {
       <h2 className="text-2xl font-bold text-center text-orange-700 mb-4">
         Admin Login
       </h2>
+
       <AuthInput
-        type="email"
-        name="email"
-        placeholder="Enter Email"
-        value={formData.email}
+        type="text"
+        name="emailOrPhone"
+        placeholder="Enter Email or Phone"
+        value={formData.emailOrPhone}
         onChange={handleChange}
+        error={errors.emailOrPhone}
       />
-      <AuthInput
-        type="tel"
-        name="phone"
-        placeholder="Enter Phone"
-        value={formData.phone}
-        onChange={handleChange}
-      />
+
       <AuthInput
         type="password"
         name="password"
         placeholder="Enter Password"
         value={formData.password}
         onChange={handleChange}
+        error={errors.password}
       />
+
+      {serverError && (
+        <p className="text-red-600 text-sm text-center">{serverError}</p>
+      )}
 
       <button
         type="submit"
-        className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-md font-semibold transition duration-300"
+        disabled={loading}
+        className={`w-full flex justify-center items-center gap-2 ${
+          loading
+            ? 'bg-orange-400 cursor-not-allowed'
+            : 'bg-orange-600 hover:bg-orange-700'
+        } text-white py-3 rounded-md font-semibold transition duration-300`}
       >
-        Sign In
+        {loading ? (
+          <div className="flex justify-center items-center gap-2">
+            <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+            Verifying...
+          </div>
+        ) : (
+          'Verify Credentials'
+        )}
       </button>
     </form>
   );

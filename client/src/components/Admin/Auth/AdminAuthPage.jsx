@@ -1,8 +1,7 @@
 // pages/AdminAuthPage.jsx
 import React from 'react';
 import AuthForm from './AuthForm';
-import logo from '../../../assets/beyond_blush-logo-BLACK.png'; // Your logo path
-
+import logo from '../../../assets/beyond_blush-logo-BLACK.png';
 const AdminAuthPage = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-100 via-orange-200 to-yellow-100 px-4">
