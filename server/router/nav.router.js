@@ -4,6 +4,7 @@ import { contactSchemaValidation } from '../test/Contact/contact.validator.js';
 import { createContact, createReview, getAllFaqs, getAllReviews, getAllTerms } from '../controller/nav.controller.js';
 import { reviewSchemaValidation } from '../test/Review/review.validator.js';
 import { getAllPricing, getAllSliders } from '../controller/adminTwo.controller.js';
+import { getAllServices } from '../controller/adminThree.controller.js';
 const router = express.Router();
 
 // Core Route : /api/navigate
@@ -30,8 +31,8 @@ router
 
 //Display all Services
 router
-     .route('all-services')
-     .get(validate(contactSchemaValidation) , createContact)
+     .route('/all-services')
+     .get(getAllServices)
 
 //Display all FAQs
 router

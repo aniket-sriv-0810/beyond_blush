@@ -7,6 +7,8 @@ import { createTermsSchema, updateTermsSchema } from '../test/TermsCond/termsand
 import { createPricingSchema, updatePricingSchema } from '../test/Pricing/pricing.validator.js';
 import { addPricing, createSlider, deletePricing, deleteSlider, editSlider, updatePricing } from '../controller/adminTwo.controller.js';
 import { upload } from '../multer.js';
+import { createServiceSchema, updateServiceSchema } from '../test/Service/service.validator.js';
+import { createService, deleteService, updateService } from '../controller/adminThree.controller.js';
 
 const router = express.Router();
 
@@ -27,20 +29,20 @@ router
      .route('/review/:id/delete')
      .delete(deleteReviewById)
 
-//Add Services
-// router
-//      .route('/add-service')
-//      .post()
+// Add Services
+router
+     .route('/add-service')
+     .post(upload.single("image"), validate(createServiceSchema), createService)
 
-// //Edit Services
-// router
-//      .route('/service/:id/edit')
-//      .put()
+//Edit Services
+router
+     .route('/service/:id/edit')
+     .put(upload.single("image"), validate(updateServiceSchema), updateService)
 
-// //Delete Services
-// router
-//      .route('/service/:id/delete')
-//      .delete()
+//Delete Services
+router
+     .route('/service/:id/delete')
+     .delete(deleteService)
 
 // //Add Card Details
 // router
