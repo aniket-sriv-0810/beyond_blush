@@ -1,6 +1,6 @@
 import React from 'react';
 import AdminNavbar from '../../../components/Admin/SideBar/AdminNavbar'
-import AdminSidebar from '../../../components/Admin/SideBar/AdminSideBar';
+import AdminSidebar from '../../../components/Admin/SideBar/AdminSidebar';
 
 
 const AdminSideBarLayout = ({ children }) => {

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Home from './pages/Home'
 import FloatingActionBtn from './components/FloatingActionBtn/FloatingActionBtn'
-import LoadingScreen from './components/Loaders/LoadingScreen'
 import { Route, Routes } from 'react-router-dom'
 import FAQs from './components/FAQs/FAQs'
 import About from './pages/About'
