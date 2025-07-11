@@ -6,9 +6,10 @@ import { createFaq, createTerms, deleteFaq, deleteTerms, updateFaq, updateTerms 
 import { createTermsSchema, updateTermsSchema } from '../test/TermsCond/termsandcond.validator.js';
 import { createPricingSchema, updatePricingSchema } from '../test/Pricing/pricing.validator.js';
 import { addPricing, createSlider, deletePricing, deleteSlider, editSlider, updatePricing } from '../controller/adminTwo.controller.js';
-import { upload } from '../multer.js';
+import { upload, uploadCardFiles } from '../multer.js';
 import { createServiceSchema, updateServiceSchema } from '../test/Service/service.validator.js';
-import { createService, deleteService, updateService } from '../controller/adminThree.controller.js';
+import { createCard, createService, deleteCard, deleteService, updateCard, updateService } from '../controller/adminThree.controller.js';
+import { createCardSchema, updateCardSchema } from '../test/Card/card.validator.js';
 
 const router = express.Router();
 
@@ -44,20 +45,20 @@ router
      .route('/service/:id/delete')
      .delete(deleteService)
 
-// //Add Card Details
-// router
-//      .route('/add-card')
-//      .post()
+//Add Card Details
+router
+     .route('/add-card')
+     .post(uploadCardFiles , validate(createCardSchema) , createCard)
 
-// //Edit Card Details
-// router
-//      .route('/card/:id/edit')
-//      .put()
+//Edit Card Details
+router
+     .route('/card/:id/edit')
+     .put(uploadCardFiles , validate(updateCardSchema) , updateCard)
 
-// //Delete Card Details
-// router
-//      .route('/card/:id/delete')
-//      .delete()
+//Delete Card Details
+router
+     .route('/card/:id/delete')
+     .delete(deleteCard)
 
 //Add FAQs Details
 router

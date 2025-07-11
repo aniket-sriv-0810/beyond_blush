@@ -1,14 +1,14 @@
-// middlewares/multer.js
 import multer from "multer";
 import path from "path";
 import fs from "fs";
 
-// Ensure upload dir exists
+// Ensure upload folder exists
 const uploadDir = "./uploads";
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir);
 }
 
+// Multer storage config
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, uploadDir);
@@ -20,25 +20,36 @@ const storage = multer.diskStorage({
   },
 });
 
-// File type filter (optional: image/video only)
+// File type restrictions
 const fileFilter = (req, file, cb) => {
   const allowedMimeTypes = [
     "image/jpeg",
     "image/png",
     "image/jpg",
+    "image/webp",
     "video/mp4",
     "video/quicktime",
   ];
-  if (allowedMimeTypes.includes(file.mimetype)) cb(null, true);
-  else cb(new Error("Only image and video files are allowed!"), false);
+  if (allowedMimeTypes.includes(file.mimetype)) {
+    cb(null, true);
+  } else {
+    cb(new Error("Only image and video files are allowed!"), false);
+  }
 };
 
+// Default multer upload
 const upload = multer({
   storage,
   limits: {
-    fileSize: 10 * 1024 * 1024, // 10MB max
+    fileSize: 10 * 1024 * 1024, // Max 10MB
   },
   fileFilter,
 });
 
-export { upload };
+// ⛏️ Custom uploader for cards with images/videos
+const uploadCardFiles = upload.fields([
+  { name: "images", maxCount: 10 },
+  { name: "videos", maxCount: 3 },
+]);
+
+export { upload, uploadCardFiles };

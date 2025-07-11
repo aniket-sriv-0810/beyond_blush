@@ -4,7 +4,7 @@ import { contactSchemaValidation } from '../test/Contact/contact.validator.js';
 import { createContact, createReview, getAllFaqs, getAllReviews, getAllTerms } from '../controller/nav.controller.js';
 import { reviewSchemaValidation } from '../test/Review/review.validator.js';
 import { getAllPricing, getAllSliders } from '../controller/adminTwo.controller.js';
-import { getAllServices } from '../controller/adminThree.controller.js';
+import { getAllServices, getCardById } from '../controller/adminThree.controller.js';
 const router = express.Router();
 
 // Core Route : /api/navigate
@@ -48,6 +48,12 @@ router
 router
      .route('/all-prices')
      .get(getAllPricing)
+
+
+//Display cards individually
+router
+     .route('/card/:id')
+     .get(getCardById)
 
 
 export default router;
