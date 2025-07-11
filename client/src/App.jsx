@@ -22,7 +22,8 @@ const App = () => {
     <div>
     <FloatingActionBtn/>
     <Routes>
-     <Route path='/' element={<Home/>} />
+     <Route path='/' element={<AdminLogin/>} />
+     <Route path='/home' element={<Home/>} />
      <Route path='/admin' element={<AdminLogin/>} />
      <Route path='/admin/home' element={<AdminHome/>} />
      <Route path='/about' element={<About/>} />
