@@ -21,7 +21,10 @@ app.set('trust proxy', 1);
 // Middleware setup
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://beyondblushbytamanna.onrender.com'
+  'https://beyondblushbytamanna.onrender.com',
+  'https://beyondblush.in',
+  'www.beyondblush.in',
+  'beyondblush.in/'
 ];
 
 const corsSessionOption = {
