@@ -9,6 +9,7 @@ import Services from './pages/Services'
 import AdminLogin from './pages/Admin/Auth/AdminLogin'
 import AdminHome from './components/Admin/AdminHome'
 import AddTermsForm from './components/TermsAndCond/Terms'
+import AddFaqForm from './components/FAQs/AddFAQForm'
 
 const App = () => {
    const [loading, setLoading] = useState(true);
@@ -22,12 +23,12 @@ const App = () => {
     <div>
     <FloatingActionBtn/>
     <Routes>
-     <Route path='/' element={<AdminLogin/>} />
-     <Route path='/home' element={<Home/>} />
+     <Route path='/' element={<Home/>} />
      <Route path='/admin' element={<AdminLogin/>} />
      <Route path='/admin/home' element={<AdminHome/>} />
      <Route path='/about' element={<About/>} />
      <Route path='/faqs' element={<FAQs/>} />
+     <Route path='/add-faqs' element={<AddFaqForm/>} />
      <Route path='/contact' element={<Contact/>} />
      <Route path='/services' element={<Services/>} />
      <Route path='/terms' element={<AddTermsForm/>} />

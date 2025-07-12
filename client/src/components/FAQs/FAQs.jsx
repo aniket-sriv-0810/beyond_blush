@@ -1,33 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { FaChevronDown, FaChevronUp, FaQuestionCircle } from "react-icons/fa";
 import { IoMdHelpCircleOutline } from "react-icons/io";
 import { MdOutlineQuestionAnswer } from "react-icons/md";
 
-const sampleFaqs = [
-  {
-    title: "What makeup brands do you use?",
-    solution: "We use premium products from brands like MAC, Huda Beauty, Charlotte Tilbury, and Fenty Beauty to ensure the best results for all skin types.",
-  },
-  {
-    title: "How long does a bridal makeup session take?",
-    solution: "A bridal makeup session typically takes 1.5 to 2 hours including hair and draping. We recommend scheduling a trial before the big day.",
-  },
-  {
-    title: "Do you provide home service?",
-    solution: "Yes, we offer doorstep makeup services across major cities. Travel charges may apply depending on the distance.",
-  },
-  {
-    title: "Is a makeup trial included in the package?",
-    solution: "Makeup trials are offered at a discounted rate and are highly recommended to ensure satisfaction and perfect coordination on the event day.",
-  },
-];
-
 const FAQs = () => {
+  const [faqs, setFaqs] = useState([]);
   const [activeIndex, setActiveIndex] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   const toggleFAQ = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
+
+  useEffect(() => {
+    const fetchFaqs = async () => {
+      try {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/navigate/faqs`);
+        setFaqs(res.data.data?.faqs || []);
+      } catch (err) {
+        setError("Failed to load FAQs. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFaqs();
+  }, []);
 
   return (
     <section className="w-full flex flex-col items-center justify-center text-center py-36 bg-gradient-to-br from-[#ffeff4] to-[#f9dbd8] text-[#5a2e2e] shadow-inner px-5 sm:px-10">
@@ -44,7 +44,15 @@ const FAQs = () => {
 
       {/* FAQs */}
       <div className="w-full max-w-4xl space-y-6">
-        {sampleFaqs.map((faq, index) => (
+        {loading && (
+          <p className="text-sm text-orange-600 animate-pulse">Loading FAQs...</p>
+        )}
+        {error && <p className="text-sm text-red-500">{error}</p>}
+        {!loading && !error && faqs.length === 0 && (
+          <p className="text-sm text-gray-500">No FAQs found.</p>
+        )}
+
+        {faqs.map((faq, index) => (
           <div
             key={index}
             className="bg-white border border-pink-200 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300"
@@ -56,7 +64,7 @@ const FAQs = () => {
             >
               <span className="flex items-center gap-3 text-sm sm:text-lg font-serif">
                 <FaQuestionCircle className="text-pink-400 text-xl" />
-                {faq.title}
+                {faq.ques}
               </span>
               <span className="ml-4 text-2xl transition-transform duration-300">
                 {activeIndex === index ? (
@@ -75,7 +83,7 @@ const FAQs = () => {
             >
               <div className="flex items-start gap-3 text-sm sm:text-base text-[#5a2e2e] font-light">
                 <MdOutlineQuestionAnswer className="text-pink-300 text-2xl mt-1" />
-                <p>{faq.solution}</p>
+                <p>{faq.ans}</p>
               </div>
             </div>
           </div>
