@@ -1,33 +1,29 @@
-import React from 'react';
-import slide2 from '../../../assets/slide2.jpg'
-const services = [
-  {
-    title: 'Bridal Makeup',
-    img: slide2,
-  },
-  {
-    title: 'Hair Styling',
-    img: slide2,
-  },
-  {
-    title: 'Face & Eye Makeup',
-    img: slide2,
-  },
-  {
-    title: 'Party Makeup',
-    img: slide2,
-  },
-  {
-    title: 'Nude Makeup',
-    img: slide2,
-  },
-  {
-    title: 'Saree Draping',
-    img: slide2,
-  },
-];
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const ServiceSection = () => {
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const res = await axios.get(
+          `${import.meta.env.VITE_API_URL}/api/navigate/all-services`
+        );
+        setServices(res.data?.data?.services || []);
+      } catch (err) {
+        console.error("Error fetching services:", err);
+        setError("Failed to load services. Please try again.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchServices();
+  }, []);
+
   return (
     <section className="bg-[#fff5ec] py-16 px-4">
       <div className="max-w-7xl mx-auto">
@@ -35,27 +31,41 @@ const ServiceSection = () => {
           What We Offer
         </h2>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-[#fce9d9] rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-105 duration-300"
-            >
-              <div className="aspect-square overflow-hidden">
-                <img
-                  src={service.img}
-                  alt={service.title}
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                />
+        {loading ? (
+          <div className="text-center text-orange-500 font-medium text-lg">
+            Loading services...
+          </div>
+        ) : error ? (
+          <div className="text-center text-red-500 font-medium text-lg">
+            {error}
+          </div>
+        ) : services.length === 0 ? (
+          <div className="text-center text-gray-600 font-medium text-lg">
+            No services available.
+          </div>
+        ) : (
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((service) => (
+              <div
+                key={service._id}
+                className="bg-[#fce9d9] rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-105 duration-300"
+              >
+                <div className="aspect-square overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div className="text-center py-4">
+                  <h3 className="text-lg font-semibold text-[#582f21]">
+                    {service.title}
+                  </h3>
+                </div>
               </div>
-              <div className="text-center py-4">
-                <h3 className="text-lg font-semibold text-[#582f21]">
-                  {service.title}
-                </h3>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import showcase from '../../../assets/admin0-no-bg.png';
+import showcase from '../../../assets/admin-cover-nobg.png';
 
 const HeroSection = () => {
   return (

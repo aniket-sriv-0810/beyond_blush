@@ -16,6 +16,7 @@ const createService = asyncHandler(async (req, res) => {
   }
 
   const cloudImage = await uploadOnCloudinary(req.file.path);
+console.log("image uploaded : " , cloudImage);
 
   const service = new Service({
     title,

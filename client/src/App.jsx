@@ -10,6 +10,8 @@ import AdminLogin from './pages/Admin/Auth/AdminLogin'
 import AdminHome from './components/Admin/AdminHome'
 import AddTermsForm from './components/TermsAndCond/Terms'
 import AddFaqForm from './components/FAQs/AddFAQForm'
+import AddService from './pages/Admin/Service/AddService'
+import AdminService from './pages/Admin/Service/AdminService'
 
 const App = () => {
    const [loading, setLoading] = useState(true);
@@ -26,6 +28,8 @@ const App = () => {
      <Route path='/' element={<Home/>} />
      <Route path='/admin' element={<AdminLogin/>} />
      <Route path='/admin/home' element={<AdminHome/>} />
+     <Route path='/admin/add-service' element={<AddService/>} />
+     <Route path='/admin/services' element={<AdminService/>} />
      <Route path='/about' element={<About/>} />
      <Route path='/faqs' element={<FAQs/>} />
      <Route path='/add-faqs' element={<AddFaqForm/>} />
