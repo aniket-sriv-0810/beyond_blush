@@ -12,6 +12,11 @@ import AddTermsForm from './components/TermsAndCond/Terms'
 import AddFaqForm from './components/FAQs/AddFAQForm'
 import AddService from './pages/Admin/Service/AddService'
 import AdminService from './pages/Admin/Service/AdminService'
+import AdminPricingForm from './components/Admin/Pricing/AddPricing'
+import AdminPricing from './pages/Admin/Pricing/AdminPricing'
+import AdminPricingTable from './components/Admin/Pricing/AdminPricingTable'
+import AddPricing from './components/Admin/Pricing/AddPricing'
+import EditPricing from './components/Admin/Pricing/EditPricing'
 
 const App = () => {
    const [loading, setLoading] = useState(true);
@@ -30,6 +35,9 @@ const App = () => {
      <Route path='/admin/home' element={<AdminHome/>} />
      <Route path='/admin/add-service' element={<AddService/>} />
      <Route path='/admin/services' element={<AdminService/>} />
+     <Route path='/admin/add-pricing' element={<AddPricing/>} />
+     <Route path='/admin/pricing/:id/edit' element={<EditPricing/>} />
+     <Route path='/admin/pricing' element={<AdminPricingTable/>} />
      <Route path='/about' element={<About/>} />
      <Route path='/faqs' element={<FAQs/>} />
      <Route path='/add-faqs' element={<AddFaqForm/>} />
