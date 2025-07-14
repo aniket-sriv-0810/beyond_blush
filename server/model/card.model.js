@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const cardSchema = new Schema(
@@ -7,6 +7,11 @@ const cardSchema = new Schema(
       type: String,
       trim: true,
       required: [true, "Title is required!"],
+    },
+    service: {
+      type: Schema.Types.ObjectId,
+      ref: "Service",
+      required: [true, "Card must belong to a service"],
     },
     description: {
       type: String,

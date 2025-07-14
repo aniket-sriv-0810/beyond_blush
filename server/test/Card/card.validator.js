@@ -1,6 +1,5 @@
 import Joi from "joi";
 
-// Create Card Schema
 const createCardSchema = Joi.object({
   title: Joi.string().trim().required().messages({
     "string.empty": "Title is required!",
@@ -10,9 +9,11 @@ const createCardSchema = Joi.object({
     "string.empty": "Description is required!",
     "any.required": "Description is required!",
   }),
+  serviceId: Joi.string().required().messages({
+    "any.required": "Service ID is required to link card!",
+  }),
 });
 
-// Edit Card Schema
 const updateCardSchema = Joi.object({
   title: Joi.string().trim().optional(),
   description: Joi.string().trim().optional(),
