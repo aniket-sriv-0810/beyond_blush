@@ -17,7 +17,7 @@ const AdminPricingTable = () => {
           `${import.meta.env.VITE_API_URL}/api/navigate/all-prices`,
          
         );
-        setPricing(res.data?.data?.prices || []);
+        setPricing(res.data?.data?.pricing  || []);
       } catch (err) {
         setError("Failed to load pricing.");
       } finally {

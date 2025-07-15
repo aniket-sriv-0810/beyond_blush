@@ -21,6 +21,9 @@ import AdminUserDetails from './components/Admin/AdminPanel/AdminUserDetails'
 import AdminEdit from './pages/Admin/AdminEdit/AdminEdit'
 import AdminChangePassword from './pages/Admin/AdminChangePassword/AdminChangePassword'
 import AdminEditService from './pages/Admin/Service/AdminEditService'
+import AdminContactTable from './pages/Admin/AdminEdit/AdminContactTable'
+import AdminSliderTable from './pages/Admin/AdminSlider/AdminSliderTable'
+import AddSlider from './pages/Admin/AdminSlider/AddSlider'
 
 const App = () => {
    const [loading, setLoading] = useState(true);
@@ -45,6 +48,7 @@ const userId = "6876ab259d8e94f3fd3422d3";
 
      <Route path='/admin/add-service' element={<AddService/>} />
      <Route path='/admin/add-pricing' element={<AddPricing/>} />
+     <Route path='/admin/add-slider' element={<AddSlider/>} />
      <Route path='/admin/pricing/:id/edit' element={<EditPricing/>} />
     <Route path='/admin' element={<AdminLogin/>} /> 
     <Route path='/admin/:id/edit' element={<AdminEdit/>} /> 
@@ -54,6 +58,8 @@ const userId = "6876ab259d8e94f3fd3422d3";
      <Route path='profile' element={<AdminUserDetails userId={userId}/>} />
      <Route path='services' element={<AdminService/>} />
      <Route path='pricing' element={<AdminPricingTable/>} />
+     <Route path='contact' element={<AdminContactTable/>} />
+     <Route path='sliders' element={<AdminSliderTable/>} />
     </Route>
 
     </Routes>
