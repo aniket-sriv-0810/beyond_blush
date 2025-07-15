@@ -7,6 +7,7 @@ import ImageGallery from '../components/Home/ImageSlideShow/ImageGallery'
 import ServiceSection from '../components/Home/ServiceSection/ServiceSection'
 import PricingSection from '../components/Home/PricingSection/PricingSection'
 import FAQs from '../components/FAQs/FAQs'
+import ScrollComponent from '../components/Home/ScrollComponent/ScrollComponent'
 const Home = () => {
 
   return (
@@ -19,6 +20,7 @@ const Home = () => {
     <ImageGallery/>
     <ServiceSection/>
     <PricingSection/>
+    <ScrollComponent/>
     <FAQs/>
     <Footer/>
     </div>

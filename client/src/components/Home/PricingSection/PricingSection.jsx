@@ -26,7 +26,7 @@ const PricingSection = () => {
         <div className="grid gap-10 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
           {Object.entries(grouped).map(([cat, items]) => (
             <div key={cat} className="bg-[#fef3ec] rounded-xl shadow-xl overflow-hidden">
-              <div className="bg-[#f4d4dc] text-center py-4 font-bold">{cat}</div>
+              <div className="bg-[#f3decd] text-center py-4 font-bold">{cat}</div>
               <div className="p-6 space-y-4">
                 {items.map(item => (
                   <div key={item._id} className="flex justify-between border-b pb-2">

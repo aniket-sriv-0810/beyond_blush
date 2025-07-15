@@ -25,8 +25,8 @@ const ServiceSection = () => {
   }, []);
 
   return (
-    <section className="bg-[#fff5ec] py-16 px-4">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-[#ffd8b5] py-16 px-4">
+      <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-serif text-center text-[#582f21] mb-12">
           What We Offer
         </h2>
@@ -48,7 +48,7 @@ const ServiceSection = () => {
             {services.map((service) => (
               <div
                 key={service._id}
-                className="bg-[#fce9d9] rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-105 duration-300"
+                className="bg-[#ffc391] rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-105 duration-300"
               >
                 <div className="aspect-square overflow-hidden">
                   <img
@@ -57,10 +57,11 @@ const ServiceSection = () => {
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                <div className="text-center py-4">
-                  <h3 className="text-lg font-semibold text-[#582f21]">
+                <div className="  text-center py-4">
+                  <h3 className="text-lg capitalize font-semibold text-[#582f21]">
                     {service.title}
                   </h3>
+                  
                 </div>
               </div>
             ))}
