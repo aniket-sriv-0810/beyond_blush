@@ -18,10 +18,13 @@ import AdminPricingTable from './components/Admin/Pricing/AdminPricingTable'
 import AddPricing from './components/Admin/Pricing/AddPricing'
 import EditPricing from './components/Admin/Pricing/EditPricing'
 import AdminUserDetails from './components/Admin/AdminPanel/AdminUserDetails'
+import AdminEdit from './pages/Admin/AdminEdit/AdminEdit'
+import AdminChangePassword from './pages/Admin/AdminChangePassword/AdminChangePassword'
+import AdminEditService from './pages/Admin/Service/AdminEditService'
 
 const App = () => {
    const [loading, setLoading] = useState(true);
-const userId = "6871087c2b2934eb35f04fff";
+const userId = "6876ab259d8e94f3fd3422d3";
   useEffect(() => {
     // simulate loading
     const timer = setTimeout(() => setLoading(false), 2500);
@@ -44,6 +47,9 @@ const userId = "6871087c2b2934eb35f04fff";
      <Route path='/admin/add-pricing' element={<AddPricing/>} />
      <Route path='/admin/pricing/:id/edit' element={<EditPricing/>} />
     <Route path='/admin' element={<AdminLogin/>} /> 
+    <Route path='/admin/:id/edit' element={<AdminEdit/>} /> 
+     <Route path='/admin/:id/change-password' element={<AdminChangePassword/>} />
+     <Route path='/admin/service/:id/edit' element={<AdminEditService/>} />
     <Route path='/admin/dashboard' element={<AdminHome/>} > 
      <Route path='profile' element={<AdminUserDetails userId={userId}/>} />
      <Route path='services' element={<AdminService/>} />

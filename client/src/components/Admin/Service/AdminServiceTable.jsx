@@ -35,7 +35,7 @@ const AdminServiceTable = () => {
 
     try {
       await axios.delete(
-        `${import.meta.env.VITE_API_URL}/api/admin/delete-service/${id}`,
+        `${import.meta.env.VITE_API_URL}/api/admin/service/${id}/delete`,
         {
           withCredentials: true,
         }
@@ -102,7 +102,7 @@ const AdminServiceTable = () => {
                   </td>
                   <td className="px-4 py-3 text-center">
                     <button
-                      onClick={() => alert("Edit coming soon!")}
+                      onClick={() => navigate(`/admin/service/{service._id}/edit`)}
                       className="text-blue-600 hover:text-blue-800 transition"
                       aria-label="Edit service"
                     >

@@ -10,7 +10,7 @@ const AdminHome = () => {
 
       <AdminSideBarLayout/>
         {/* User Info */}
-      <div className="flex-1 -ml-8">
+      <div className="flex-1 lg:-ml-8">
        <Outlet/>
       </div>
      </div>

@@ -166,6 +166,39 @@ const changePassword = asyncHandler(async (req, res) => {
   );
 });
 
+const checkAuthentication = asyncHandler(async (req, res) => {
+  try {
+    if (req.user) {
+      console.log("Authenticated user:", req.user);
+
+      const { _id, name, email, phone, role } = req.user;
+
+      return res.status(200).json(
+        new ApiResponse(200, {
+          isAuthenticated: true,
+          user: {
+            _id,
+            name,
+            email,
+            phone,
+            role,
+            isAdmin: role === "admin", // boolean flag
+          },
+        })
+      );
+    } else {
+      console.log("User not authenticated!");
+      return res.status(200).json(
+        new ApiResponse(200, { isAuthenticated: false }, "User not authenticated yet!")
+      );
+    }
+  } catch (error) {
+    console.log("Error in authentication check:", error);
+    return res.status(400).json(
+      new ApiError(400, error.message || error, "Failed to authenticate the user!")
+    );
+  }
+});
 //Fetch all Contact Details
 const getAllContacts = asyncHandler(async (req, res) => {
   try {
@@ -238,4 +271,4 @@ const deleteReviewById = asyncHandler(async (req, res) => {
       .json(new ApiError(400, error, "Failed to delete review."));
   }
 });
-export {registerUser,loginUser,getUserById ,updateUser ,changePassword , getAllContacts , deleteContactById , deleteReviewById };
+export {registerUser,loginUser,getUserById ,updateUser ,changePassword ,checkAuthentication, getAllContacts , deleteContactById , deleteReviewById };
