@@ -39,7 +39,7 @@ const AuthForm = () => {
       }
 
       localStorage.setItem('token', res.data.token);
-      navigate('/admin/home');
+      navigate('/admin/dashboard');
     } catch (err) {
       const msg =
         err.response?.data?.message || 'Something went wrong. Please try again.';
