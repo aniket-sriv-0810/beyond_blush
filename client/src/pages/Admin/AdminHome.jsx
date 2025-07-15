@@ -6,11 +6,11 @@ const AdminHome = () => {
   
   return (
     <>
-     <div className="flex flex-col md:flex-row gap-6 p-4">
+     <div className="flex flex-col md:flex-row ">
 
       <AdminSideBarLayout/>
         {/* User Info */}
-      <div className="flex-1">
+      <div className="flex-1 -ml-8">
        <Outlet/>
       </div>
      </div>

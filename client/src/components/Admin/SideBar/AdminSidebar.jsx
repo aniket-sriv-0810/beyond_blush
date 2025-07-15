@@ -3,13 +3,13 @@ import { FaCoins , FaUser, FaImages, FaCalendarCheck , FaQuestionCircle, FaHome 
 import { RiBrushAiFill , RiColorFilterAiFill  } from "react-icons/ri";
 import { IoMailUnread , IoDocumentsSharp } from "react-icons/io5";
 import { Link } from 'react-router-dom';
-import logo from '../../../assets/beyond_blush-logo-BLACK.png';
+import logo from '../../../assets/logo-brown.png';
 
 const navItems = [
   { name: 'My Profile',key:'profile', path: 'profile', icon: <FaUser /> },
   { name: 'Services',key:'services', path: 'services', icon: <RiBrushAiFill /> },
   { name: 'Cards',key:'cards', path: 'cards', icon: <RiColorFilterAiFill /> },
-  { name: 'Prices',key:'prices', path: 'prices', icon: <FaCoins /> },
+  { name: 'Prices',key:'prices', path: 'pricing', icon: <FaCoins /> },
   { name: 'Contacts',key:'contacts', path: 'contact', icon: <IoMailUnread /> },
   { name: 'Bookings',key:'bookings', path: 'booking', icon: <FaCalendarCheck  /> },
   { name: 'Sliders',key:'sliders', path: 'sliders', icon: <FaImages /> },
