@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import { motion } from "framer-motion";
 const ServiceSection = () => {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+  const fadeInUp = {
+    hidden: { opacity: 0, y: -50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
+  };
   useEffect(() => {
     const fetchServices = async () => {
       try {
@@ -44,7 +48,13 @@ const ServiceSection = () => {
             No services available.
           </div>
         ) : (
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false }}
+            variants={fadeInUp}
+            className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
+          >
             {services.map((service) => (
               <div
                 key={service._id}
@@ -61,11 +71,10 @@ const ServiceSection = () => {
                   <h3 className="text-lg capitalize font-semibold text-[#582f21]">
                     {service.title}
                   </h3>
-                  
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
         )}
       </div>
     </section>
