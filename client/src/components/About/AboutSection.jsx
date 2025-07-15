@@ -2,16 +2,13 @@ import React from "react";
 import img1 from "../../assets/admin-pic1.jpg"; // Portrait image
 import award1 from "../../assets/award1.jpg"; // Landscape
 import award2 from "../../assets/admin-pic2.jpg"; // Landscape
-
+import {motion} from 'framer-motion';
 const AboutSection = () => {
   const fadeInUp = {
     hidden: { opacity: 0, y: -50 },
     visible: { opacity: 1, y: 0, transition: { duration: 1 } },
   };
-  const fadeInDown = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
-  };
+
   return (
     <section className="pt-24 bg-[#fff6ed] py-16 px-4 sm:px-6 lg:px-20 xl:px-28 text-[#582f21]">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
@@ -58,8 +55,8 @@ const AboutSection = () => {
 
         {/* Right Portrait Image */}
         <div className="flex-1 w-full max-w-xs">
-          <div className="bg-[#f3d2b3] rounded-xl shadow-xl overflow-hidden hover:scale-105 transition-transform duration-300 hover:shadow-gray-500">
-            <img
+          <div className=" rounded-xl hover:shadow-xl overflow-hidden hover:scale-105 transition-transform duration-300 hover:shadow-gray-500">
+            <motion.img
               initial="hidden"
               whileInView="visible"
               viewport={{ once: false }}

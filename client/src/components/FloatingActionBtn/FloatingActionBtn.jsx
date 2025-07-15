@@ -11,7 +11,7 @@ const FloatingActionBtn = () => {
       {/* Call Button */}
       <a
         href={`tel:${phoneNumber}`}
-        className="group relative bg-pink-500 text-white rounded-full p-4 shadow-xl hover:scale-110 hover:bg-pink-600 transition-all duration-300"
+        className="group relative bg-gradient-to-tl from-[#d82114] to-[#2b2593]  text-white rounded-full p-4 shadow-xl hover:scale-110  transition-all duration-300"
       >
         <FaPhoneAlt className="text-lg" />
         <span className="absolute right-full mr-2 opacity-0 group-hover:opacity-100 transition duration-300 bg-black text-white text-xs rounded px-2 py-1 whitespace-nowrap">
@@ -28,7 +28,7 @@ const FloatingActionBtn = () => {
         rel="noopener noreferrer"
         className="group relative bg-green-500 text-white rounded-full p-4 shadow-xl hover:scale-110 hover:bg-green-600 transition-all duration-300"
       >
-        <FaWhatsapp className="text-lg" />
+        <FaWhatsapp className="text-xl" />
         <span className="absolute right-full mr-2 opacity-0 group-hover:opacity-100 transition duration-300 bg-black text-white text-xs rounded px-2 py-1 whitespace-nowrap">
           Book Now
         </span>
