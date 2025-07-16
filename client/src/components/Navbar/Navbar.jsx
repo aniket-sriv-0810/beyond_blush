@@ -45,10 +45,10 @@ const Navbar = () => {
   return (
     <header
       className={`fixed w-full top-0 z-50 transition-all duration-500 ease-in-out ${
-        isScrolled ? "bg-white shadow-md" : "bg-transparent"
+        isScrolled ? "bg-white shadow-md" : "bg-gradient-to-bl from-[#ea8b85] to-[#dba05b]"
       } px-4 py-3`}
     >
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
+      <div className="max-w-7xl mx-auto flex justify-between items-center ">
         {/* Logo Center on Mobile */}
         <div className="flex-1 flex justify-center lg:justify-start">
           <Link to="/">

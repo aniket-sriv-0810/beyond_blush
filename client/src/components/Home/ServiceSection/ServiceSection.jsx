@@ -29,7 +29,7 @@ const ServiceSection = () => {
   }, []);
 
   return (
-    <section className="bg-[#ffddbf] py-16 px-4">
+    <section className="bg-[#ffddbf] py-16 px-4 mt-8 md:mt-16">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl text-[#532617] md:text-5xl font-serif text-center mb-16 font-bold tracking-tight">
           What We Offer

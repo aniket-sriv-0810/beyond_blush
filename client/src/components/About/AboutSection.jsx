@@ -10,7 +10,7 @@ const AboutSection = () => {
   };
 
   return (
-    <section className="pt-24 bg-[#fff6ed] py-16 px-4 sm:px-6 lg:px-20 xl:px-28 text-[#582f21]">
+    <section className="pt-24 bg-[#fde6cf] py-16 px-4 sm:px-6 lg:px-20 xl:px-28 text-[#582f21]">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
         {/* Left Text + Awards */}
         <div className="flex-1">

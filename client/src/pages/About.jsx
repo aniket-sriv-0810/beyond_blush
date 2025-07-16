@@ -4,16 +4,22 @@ import AboutSection from '../components/About/AboutSection'
 import AwardsSection from '../components/About/AwardsSection'
 import CertificateGallery from '../components/About/CertificateGallery'
 import Footer from '../components/Footer/Footer'
-import MapComponent from '../components/Contact/MapComponent'
+import ScrollComponent from '../components/Home/ScrollComponent/ScrollComponent'
+
+
 
 const About = () => {
   return (
     <>
+
       <Navbar/>
+      <div className='md:pt-16'>
       <AboutSection/>
+      </div>
       <AwardsSection/>
       <CertificateGallery/>
-      <MapComponent/>
+    <ScrollComponent/>
+
       <Footer/>
     </>
   )

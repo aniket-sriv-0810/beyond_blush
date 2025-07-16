@@ -4,9 +4,9 @@ import cert2 from "../../assets/certificate2.jpg";
 import cert3 from "../../assets/certificate3.jpg"; 
 
 const certificates = [
-  { id: 1, src: cert1, title: "Advanced Bridal Mastery" },
-  { id: 2, src: cert2, title: "Makeup Certification - Glam Style" },
-  { id: 3, src: cert3, title: "Pro Artistry & Beauty Excellence" },
+  { id: 1, src: cert1, title: "Preeti Gera Certification" },
+  { id: 2, src: cert2, title: "Sakshi and Himanshu Gupta Certification" },
+  { id: 3, src: cert3, title: "Nailakriti Certification" },
 ];
 
 const CertificateGallery = () => {
@@ -16,9 +16,9 @@ const CertificateGallery = () => {
   const closeModal = () => setSelected(null);
 
   return (
-    <section className="w-full py-24 px-4 sm:px-10 bg-gradient-to-b from-[#fff3f0] to-[#f9d5c8] text-[#4a2e2e]">
+    <section className="w-full py-24 px-4 sm:px-10 bg-gradient-to-tr from-[#ffe6e0] to-[#f9cfc0] text-[#4a2e2e]">
       <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl font-bold">Our Certifications</h2>
+        <h2 className="text-4xl md:text-5xl font-serif text-center mb-4 font-bold tracking-tight text-[#5c2e1f]">My Certifications</h2>
         <p className="mt-2 text-base sm:text-lg">Recognized by industry leaders for excellence in beauty & bridal artistry.</p>
       </div>
 
@@ -34,7 +34,7 @@ const CertificateGallery = () => {
               alt={cert.title}
               className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute bottom-0 bg-black bg-opacity-40 text-white w-full text-sm text-center py-2 font-medium">
+            <div className="absolute bottom-0 bg-black/70 bg-opacity-40 text-white w-full text-sm text-center py-2 font-medium">
               {cert.title}
             </div>
           </div>
@@ -43,12 +43,12 @@ const CertificateGallery = () => {
 
       {/* Modal Popup */}
       {selected && (
-        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4 sm:p-10">
+        <div className="fixed inset-0 bg-black/60 bg-opacity-70 flex items-center justify-center z-50 p-4 sm:p-10">
           <div className="relative bg-white rounded-lg max-w-3xl w-full max-h-[90vh] overflow-auto shadow-2xl">
             {/* Close Button */}
             <button
               onClick={closeModal}
-              className="absolute top-2 right-2 text-white bg-pink-500 hover:bg-pink-600 p-2 rounded-full shadow-md z-10"
+              className="absolute top-2 right-2 text-white bg-red-500/60 hover:bg-orange-600/60 p-2.5 rounded-full shadow-md z-10"
             >
               ✕
             </button>
