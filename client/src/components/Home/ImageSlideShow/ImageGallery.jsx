@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import ImageSlideshow from "./ImageSlideshow";
+import ImageSlideshow from "./ImageSlideShow";
 import { motion } from "framer-motion";
 
 const ImageGallery = () => {
