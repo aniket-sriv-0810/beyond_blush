@@ -12,8 +12,8 @@ const navItems = [
   { name: "Services", key: "services", path: "services", icon: <RiBrushAiFill /> },
   { name: "Cards", key: "cards", path: "cards", icon: <RiColorFilterAiFill /> },
   { name: "Prices", key: "prices", path: "pricing", icon: <FaCoins /> },
-  { name: "Contacts", key: "contacts", path: "contact", icon: <IoMailUnread /> },
-  { name: "Bookings", key: "bookings", path: "booking", icon: <FaCalendarCheck /> },
+  { name: "Contacts", key: "contacts", path: "contacts", icon: <IoMailUnread /> },
+  { name: "Bookings", key: "bookings", path: "bookings", icon: <FaCalendarCheck /> },
   { name: "Sliders", key: "sliders", path: "sliders", icon: <FaImages /> },
   { name: "FAQs", key: "faqs", path: "faqs", icon: <FaQuestionCircle /> },
   { name: "Policies", key: "policies", path: "terms-and-cond", icon: <IoDocumentsSharp /> },
@@ -24,10 +24,10 @@ const AdminSidebar = () => {
   return (
     <>
       <aside className="hidden lg:flex flex-col w-64 h-screen bg-[#f3d2b3] text-[#582f21] fixed top-0 left-0 shadow-md">
-        <div className="p-6 border-b flex justify-center items-center">
-          <img src={logo} alt="Logo" className="h-12" />
+        <div className="p-6  flex justify-center items-center">
+          <img src={logo} alt="Logo" className="h-16" />
         </div>
-        <nav className="flex flex-col mt-6 gap-4 px-6">
+        <nav className="flex flex-col mt-6 gap-6 px-6">
           {navItems.map(({ name, path, icon }) => (
             <Link
               key={name}

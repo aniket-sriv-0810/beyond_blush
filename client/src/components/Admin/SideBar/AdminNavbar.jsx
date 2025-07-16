@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaBars } from 'react-icons/fa';
-import logo from '../../../assets/beyond_blush-logo-BLACK.png';
+import logo from '../../../assets/logo-brown.png';
 import AdminSidebarDrawer from './AdminSideBarDrawer';
 
 const AdminNavbar = () => {
