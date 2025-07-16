@@ -24,6 +24,8 @@ import AdminEditService from './pages/Admin/Service/AdminEditService'
 import AdminContactTable from './pages/Admin/AdminContact/AdminContactTable'
 import AdminSliderTable from './pages/Admin/AdminSlider/AdminSliderTable'
 import AddSlider from './pages/Admin/AdminSlider/AddSlider'
+import AdminFaqTable from './pages/Admin/AdminFaq/AdminFaq'
+import AdminPoliciesTable from './pages/Admin/AdminPolicies/AdminPoliciesTable'
 
 const App = () => {
    const [loading, setLoading] = useState(true);
@@ -60,6 +62,8 @@ const userId = "6876ab259d8e94f3fd3422d3";
      <Route path='pricing' element={<AdminPricingTable/>} />
      <Route path='contact' element={<AdminContactTable/>} />
      <Route path='sliders' element={<AdminSliderTable/>} />
+     <Route path='faqs' element={<AdminFaqTable/>} />
+     <Route path='terms-and-cond' element={<AdminPoliciesTable/>} />
     </Route>
 
     </Routes>

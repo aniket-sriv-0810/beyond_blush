@@ -6,11 +6,9 @@ import logo from "../../assets/logo-brown.png";
 import {
   FaHome,
   FaUser,
-  FaImages,
   FaPhoneAlt,
   FaInfoCircle,
   FaQuestionCircle,
-  FaUserShield,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 const Navbar = () => {
@@ -20,7 +18,6 @@ const Navbar = () => {
   const toggleDrawer = () => setIsOpen(!isOpen);
 
   const navLinks = [
-    { name: "Admin", path: "/admin", icon: <FaUserShield /> },
     { name: "Home", path: "/", icon: <FaHome /> },
     { name: "About", path: "/about", icon: <FaInfoCircle /> },
     { name: "Services", path: "/services", icon: <FaUser /> },
