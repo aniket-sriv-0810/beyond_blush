@@ -28,7 +28,7 @@ const PricingSection = () => {
     <section className="relative py-20 my-20  bg-[#f8eee9] text-[#582f21]">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         <h2 className="text-4xl md:text-5xl font-serif text-center mb-16 font-bold tracking-tight">
-          Pricing
+          Our Pricing
         </h2>
 
         <motion.div

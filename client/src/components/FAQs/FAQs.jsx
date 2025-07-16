@@ -41,7 +41,7 @@ const FAQs = () => {
         whileInView="visible"
         viewport={{ once: false }}
         variants={fadeInUp}
-    className="w-full flex flex-col items-center justify-center text-center py-36 bg-gradient-to-br from-[#efd6bb] to-[#ffada5] text-[#5a2e2e] shadow-inner px-5 sm:px-10">
+    className="w-full flex flex-col items-center justify-center text-center py-36 bg-gradient-to-tl from-[#ffd2a3] to-[#ffc4be] text-[#5a2e2e] shadow-inner px-5 sm:px-10">
       {/* Title */}
       <div
         

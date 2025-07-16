@@ -29,9 +29,9 @@ const ServiceSection = () => {
   }, []);
 
   return (
-    <section className="bg-[#ffd8b5] py-16 px-4">
+    <section className="bg-[#ffddbf] py-16 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-serif text-center text-[#582f21] mb-12">
+        <h2 className="text-4xl text-[#532617] md:text-5xl font-serif text-center mb-16 font-bold tracking-tight">
           What We Offer
         </h2>
 
@@ -53,12 +53,12 @@ const ServiceSection = () => {
             whileInView="visible"
             viewport={{ once: false }}
             variants={fadeInUp}
-            className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
+            className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
           >
             {services.map((service) => (
               <div
                 key={service._id}
-                className="bg-[#ffc391] rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-105 duration-300"
+                className="bg-[#ffeee1] rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-105 duration-300"
               >
                 <div className="aspect-square overflow-hidden">
                   <img
