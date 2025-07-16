@@ -23,9 +23,7 @@ const allowedOrigins = [
   'http://localhost:5173',
   'http://localhost:8000',
   'https://beyondblushbytamanna.onrender.com',
-  'https://beyondblush.in',
-  'www.beyondblush.in',
-  'beyondblush.in/'
+  'https://www.beyondblush.in',
 ];
 
 const corsSessionOption = {
