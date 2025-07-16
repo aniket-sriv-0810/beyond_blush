@@ -28,7 +28,7 @@ const AdminUserDetails = ({ userId }) => {
   if (error) return <p className="text-red-500 text-sm">{error}</p>;
 
   return (
-    <div className="p-6 md:p-8 md:mt-20 bg-white shadow-xl rounded-3xl max-w-4xl mx-auto space-y-8 border border-orange-100">
+    <div className="p-6 md:p-8 md:mt-20 bg-[#ffecdb] shadow-xl rounded-3xl max-w-4xl mx-auto space-y-8 border border-orange-100">
       <UserInfoCard user={user} />
       <hr className="border-t border-orange-200" />
       <InfoGrid user={user} />

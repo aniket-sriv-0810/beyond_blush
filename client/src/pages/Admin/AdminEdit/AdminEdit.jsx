@@ -43,34 +43,49 @@ const AdminEdit = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-6 bg-white rounded-2xl shadow-md mt-6">
-      <h2 className="text-2xl font-bold text-orange-600 mb-4">Edit User Details</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {["name", "email", "phone"].map((field) => (
-          <div key={field}>
-            <label className="block text-sm text-gray-600 mb-1 capitalize">{field}</label>
-            <input
-              name={field}
-              type="text"
-              value={formData[field]}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-md bg-gray-100 focus:outline-orange-400"
-              required
-            />
-          </div>
-        ))}
-        <button
-          type="submit"
-          className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-lg font-medium transition"
-          disabled={loading}
-        >
-          {loading ? "Updating..." : "Update"}
-        </button>
-        {message && (
-          <p className="text-sm mt-2 text-center text-gray-700">{message}</p>
-        )}
-      </form>
-    </div>
+
+    <div className="max-w-xl m-auto p-6  sm:p-8 bg-[#f3d2b3] rounded-3xl shadow-xl mt-20">
+  <h2 className="text-3xl font-extrabold text-center text-orange-600 mb-6 tracking-tight">
+    Edit User Details
+  </h2>
+
+  <form onSubmit={handleSubmit} className="space-y-6">
+    {/* Input Fields */}
+    {["name", "email", "phone"].map((field) => (
+      <div key={field}>
+        <label className="block text-sm font-medium text-gray-700 mb-1 capitalize">
+          {field}
+        </label>
+        <input
+          name={field}
+          type={field === "email" ? "email" : "text"}
+          value={formData[field]}
+          onChange={handleChange}
+          required
+          className="w-full px-4 py-2 rounded-lg border border-gray-300 bg-gray-50 focus:ring-2 focus:ring-orange-400 focus:outline-none text-gray-800 transition duration-200"
+          placeholder={`Enter ${field}`}
+        />
+      </div>
+    ))}
+
+    {/* Submit Button */}
+    <button
+      type="submit"
+      disabled={loading}
+      className="w-full py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl shadow-sm transition-all duration-300"
+    >
+      {loading ? "Updating..." : "Update"}
+    </button>
+
+    {/* Status Message */}
+    {message && (
+      <div className="text-center text-sm text-gray-600 mt-3">
+        {message}
+      </div>
+    )}
+  </form>
+</div>
+
   );
 };
 

@@ -9,7 +9,7 @@ const FormGroup = ({ label, value }) => (
       type="text"
       value={value}
       readOnly
-      className="w-full border border-gray-300 rounded-lg px-4 py-2 text-gray-700 bg-gray-50 focus:outline-none transition"
+      className="w-full border  border-gray-300 rounded-lg px-4 py-2 text-gray-700 bg-gray-50 focus:outline-none transition"
     />
   </div>
 );

@@ -32,7 +32,7 @@ const AdminSidebar = () => {
             <Link
               key={name}
               to={path}
-              className="flex items-center gap-3 text-lg font-medium hover:text-pink-500 transition"
+              className="flex items-center gap-3 text-lg font-medium hover:text-[#db7471] transition"
             >
               <span className="text-xl">{icon}</span>
               <span>{name}</span>

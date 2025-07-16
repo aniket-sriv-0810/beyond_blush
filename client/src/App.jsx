@@ -21,7 +21,7 @@ import AdminUserDetails from './components/Admin/AdminPanel/AdminUserDetails'
 import AdminEdit from './pages/Admin/AdminEdit/AdminEdit'
 import AdminChangePassword from './pages/Admin/AdminChangePassword/AdminChangePassword'
 import AdminEditService from './pages/Admin/Service/AdminEditService'
-import AdminContactTable from './pages/Admin/AdminEdit/AdminContactTable'
+import AdminContactTable from './pages/Admin/AdminContact/AdminContactTable'
 import AdminSliderTable from './pages/Admin/AdminSlider/AdminSliderTable'
 import AddSlider from './pages/Admin/AdminSlider/AddSlider'
 

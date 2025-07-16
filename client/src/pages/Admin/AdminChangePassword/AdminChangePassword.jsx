@@ -34,37 +34,50 @@ const AdminChangePassword = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-6 bg-white rounded-2xl shadow-md mt-6">
-      <h2 className="text-2xl font-bold text-orange-600 mb-4">Change Password</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {[
-          { label: "Current Password", name: "currentPassword" },
-          { label: "New Password", name: "newPassword" },
-        ].map(({ label, name }) => (
-          <div key={name}>
-            <label className="block text-sm text-gray-600 mb-1">{label}</label>
-            <input
-              type="password"
-              name={name}
-              value={formData[name]}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-md bg-gray-100 focus:outline-orange-400"
-              required
-            />
-          </div>
-        ))}
-        <button
-          type="submit"
-          className="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-2 rounded-lg font-medium transition"
-          disabled={loading}
-        >
-          {loading ? "Updating..." : "Change Password"}
-        </button>
-        {message && (
-          <p className="text-sm mt-2 text-center text-gray-700">{message}</p>
-        )}
-      </form>
-    </div>
+    <div className="max-w-2xl mx-auto p-6 sm:p-8 bg-[#ffd1c2] rounded-3xl shadow-xl mt-10">
+  <h2 className="text-3xl font-extrabold text-center text-[#d85e36] mb-6 tracking-tight">
+    Change Password
+  </h2>
+
+  <form onSubmit={handleSubmit} className="space-y-6">
+    {[
+      { label: "Current Password", name: "currentPassword" },
+      { label: "New Password", name: "newPassword" },
+    ].map(({ label, name }) => (
+      <div key={name}>
+        <label className="block text-sm font-medium text-gray-700 mb-1">
+          {label}
+        </label>
+        <input
+          type="password"
+          name={name}
+          value={formData[name]}
+          onChange={handleChange}
+          required
+          placeholder={`Enter ${label.toLowerCase()}`}
+          className="w-full px-4 py-2 rounded-lg border border-gray-300 bg-gray-50 focus:ring-2 focus:ring-yellow-400 focus:outline-none text-gray-800 transition duration-200"
+        />
+      </div>
+    ))}
+
+    {/* Submit Button */}
+    <button
+      type="submit"
+      disabled={loading}
+      className="w-full py-3 bg-[#e7752e] hover:bg-orange-600 text-white font-semibold rounded-xl shadow-sm transition-all duration-300"
+    >
+      {loading ? "Updating..." : "Change Password"}
+    </button>
+
+    {/* Status Message */}
+    {message && (
+      <div className="text-center text-sm text-gray-600 mt-3">
+        {message}
+      </div>
+    )}
+  </form>
+</div>
+
   );
 };
 
