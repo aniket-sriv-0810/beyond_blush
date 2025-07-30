@@ -38,12 +38,12 @@ const MobileDrawer = ({ isOpen, toggleDrawer, navLinks }) => {
         </nav>
 
         {/* Social Icons */}
-        <div className="flex justify-center mt-9 gap-6 text-xl text-[#582f21]">
+        <div className="flex justify-center mt-9 gap-6 text-xl  text-[#582f21]">
           <Link
             to="https://www.instagram.com/beyondblushbytamanna?igsh=MXQxOTd2Y3B3OGRrMg%3D%3D&utm_source=qr"
             target="_blank"
           >
-            <FaInstagram />
+            <FaInstagram/>
           </Link>
 
           <Link

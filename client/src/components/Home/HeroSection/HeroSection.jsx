@@ -32,17 +32,13 @@ const HeroSection = () => {
           className="mt-2 text-lg md:text-lg lg:text-xl font-medium">
             Makeup Artist | Hair Stylist | Nail Artist
           </motion.h2>
-          <motion.p 
-          initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false }}
-            variants={fadeInUp}
+          <p 
           className="w-[90%] md:w-full m-auto mt-4 font-serif text-base md:text-lg italic">
             Hello , I’m your trusted stylist — passionate about enhancing
             natural beauty through expert makeup and hairstyling. With years of
             experience, I’m here to help you look and feel your best for any
             occasion.
-          </motion.p>
+          </p>
           <div className="mt-6">
             <Link
               to="/about"
@@ -65,7 +61,7 @@ const HeroSection = () => {
             whileInView="visible"
             viewport={{ once: false }}
             variants={fadeInUp}
-            className="w-[80%] bg-gradient-to-tl from-[#c28136] to-[#8e2c3d]  sm:w-[70%] md:w-[90%] max-w-xs  md:bg-none md:shadow-none sm:max-w-sm md:max-w-md lg:max-w-xl  object-contain shadow-2xl rounded-4xl "
+            className="w-[80%]   sm:w-[70%] md:w-[90%] max-w-xs  md:bg-none md:shadow-none sm:max-w-sm md:max-w-md lg:max-w-xl  object-contain shadow-xl rounded-4xl "
           />
         </div>
       </div>

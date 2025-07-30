@@ -73,7 +73,7 @@ const Footer = () => {
           href="https://www.facebook.com/share/1CNvmNQTo2/?mibextid=wwXIfr"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:scale-110 text-white bg-[#4267B2] hover:bg-[#365899] p-2 rounded-full transition"
+          className="hover:scale-110 text-white bg-[#df8365] p-2 rounded-full transition"
           aria-label="Facebook"
         >
           <FaFacebookF size={18}  />
@@ -82,7 +82,7 @@ const Footer = () => {
           href="https://www.instagram.com/beyondblushbytamanna?igsh=MXQxOTd2Y3B3OGRrMg%3D%3D&utm_source=qr"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:scale-110 text-white bg-gradient-to-tr from-pink-500 via-red-500 to-yellow-500 hover:brightness-110 p-2 rounded-full transition"
+          className="hover:scale-110 text-white bg-[#df8365] hover:brightness-110 p-2 rounded-full transition"
           aria-label="Instagram"
         >
           <FaInstagram size={18} />
@@ -91,7 +91,7 @@ const Footer = () => {
           href="https://www.linkedin.com/in/tamanna-srivastav-41162416b/"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:scale-110 text-white bg-blue-700 hover:brightness-110 p-2 rounded-full transition"
+          className="hover:scale-110 text-white bg-[#df8365] hover:brightness-110 p-2 rounded-full transition"
           aria-label="Instagram"
         >
           <FaLinkedinIn  size={18} />
@@ -100,7 +100,7 @@ const Footer = () => {
           href="mailto:beyondblushbytamanna@gmail.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:scale-110 text-white bg-gradient-to-tr from-red-500 via-pink-500 to-purple-500 hover:brightness-110 p-2 rounded-full transition"
+          className="hover:scale-110 text-white bg-[#df8365] hover:brightness-110 p-2 rounded-full transition"
           aria-label="Instagram"
         >
           <IoMail size={18} />
